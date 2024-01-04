@@ -1,0 +1,20 @@
+read image
+denoise - fastNlMeansDenoisingColored
+read calibration - read calibration image & calculate wall width average
+	calculate wall width average
+		- grayscale
+		- filter walls from grayscale
+		- thresholding
+		- opening (erosion + dilation)
+		- bg = dilate
+		- distance transform
+		- fg = threshold
+		- wall_filter = bg - fg
+		
+		- find contours on wall_filter
+		- approximate contours
+
+IO.read_image
+image.denoising
+Floor Plan Calibration
+Creation

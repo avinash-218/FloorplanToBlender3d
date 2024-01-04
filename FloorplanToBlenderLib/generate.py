@@ -76,18 +76,18 @@ def generate_all_files(
             else:
                 shape = Wall(gray, path, scale, info).shape
 
-        if floorplan.rooms:
-            if shape is not None:
-                new_shape = Room(gray, path, scale, info).shape
-                shape = validate_shape(shape, new_shape)
-            else:
-                shape = Room(gray, path, scale, info).shape
+        # if floorplan.rooms:
+        #     if shape is not None:
+        #         new_shape = Room(gray, path, scale, info).shape
+        #         shape = validate_shape(shape, new_shape)
+        #     else:
+        #         shape = Room(gray, path, scale, info).shape
 
-        if floorplan.windows:
-            Window(gray, path, floorplan.image_path, scale_factor, scale, info)
+        # if floorplan.windows:
+        #     Window(gray, path, floorplan.image_path, scale_factor, scale, info)
 
-        if floorplan.doors:
-            Door(gray, path, floorplan.image_path, scale_factor, scale, info)
+        # if floorplan.doors:
+        #     Door(gray, path, floorplan.image_path, scale_factor, scale, info)
 
     generate_transform_file(
         floorplan.image_path,

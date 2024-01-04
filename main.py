@@ -91,28 +91,29 @@ if __name__ == "__main__":
     if auto_blender_install_path is not None:
         blender_install_path = auto_blender_install_path
 
-    var = input(
-        "Please enter your blender installation path [default = "
-        + blender_install_path
-        + "]: "
-    )
+    var = None
+    # var = input(
+    #     "Please enter your blender installation path [default = "
+    #     + blender_install_path
+    #     + "]: "
+    # )
     if var:
         blender_install_path = var
 
-    var = input(
-        "Do you want to build from StackingFile or ConfigFile list ? [default = ConfigFile]: "
-    )
+    # var = input(
+    #     "Do you want to build from StackingFile or ConfigFile list ? [default = ConfigFile]: "
+    # )
     if var in ["N", "n", "StackingFile", "stacking", "stackingfile"]:
         stacking_def_path = "./Stacking/all_separated_example.txt"
-        var = input(f"Enter path to Stacking file : [default = {stacking_def_path}]: ")
+        # var = input(f"Enter path to Stacking file : [default = {stacking_def_path}]: ")
         if var:
             stacking_def_path = var
         data_paths = stacking.parse_stacking_file(stacking_def_path)
 
         print("")
-        var = input(
-            "This program is about to run and create blender3d project, continue? : "
-        )
+        # var = input(
+        #     "This program is about to run and create blender3d project, continue? : "
+        # )
         if var:
             print("Program stopped.")
             exit(0)
@@ -120,11 +121,11 @@ if __name__ == "__main__":
     else:
 
         config_path = "./Configs/default.ini"
-        var = input(
-            "Use default config or import from file paths separated by space [default = "
-            + config_path
-            + "]: "
-        )
+        # var = input(
+        #     "Use default config or import from file paths separated by space [default = "
+        #     + config_path
+        #     + "]: "
+        # )
 
         if var:
             config_path = var
@@ -135,23 +136,23 @@ if __name__ == "__main__":
         else:
             floorplans.append(floorplan.new_floorplan(config_path))
 
-        var = input("Do you want to set images to use in each config file? [N/y]: ")
+        # var = input("Do you want to set images to use in each config file? [N/y]: ")
         if var in ["y", "Y"]:
             for floorplan in floorplans:
-                var = input(
-                    "For config file "
-                    + floorplan.conf
-                    + " write path for image to use "
-                    + "[Default="
-                    + floorplan.image_path
-                    + "]:"
-                )
+                # var = input(
+                #     "For config file "
+                #     + floorplan.conf
+                #     + " write path for image to use "
+                #     + "[Default="
+                #     + floorplan.image_path
+                #     + "]:"
+                # )
                 if var:  # TODO: test this
                     floorplan.image_path = var
         print("")
-        var = input(
-            "This program is about to run and create blender3d project, continue? : "
-        )
+        # var = input(
+        #     "This program is about to run and create blender3d project, continue? : "
+        # )
         if var:
             print("Program stopped.")
             exit(0)
@@ -162,7 +163,7 @@ if __name__ == "__main__":
         print("Clean datafiles")
 
         print("")
-        var = input("Clear all cached data before run: [default = yes] : ")
+        # var = input("Clear all cached data before run: [default = yes] : ")
 
         if not var or var.lower() == "yes" or var.lower() == "y":
             IO.clean_data_folder(data_folder)
